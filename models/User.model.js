@@ -19,10 +19,9 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true,
-    },
-    project: {
-      type : Array,
     }
+    //projects: []
+    
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
