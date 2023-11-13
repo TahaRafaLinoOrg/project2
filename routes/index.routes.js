@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const mongoose = require("mongoose");
+
+const Project = require("../models/Project.model");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -15,10 +18,11 @@ router.get("/create-project", (req, res, next) => {
 });
 router.post("/create-project", (req, res, next) => {
   console.log(req.body)
-  //const {name, description, img} = req.body
+  const {name, description, img} = req.body
+  //im here
   
-  Project.create()
-  res.render("create-project", {loggedInUser});
+  //Project.create()
+  res.render("portfolio");
 });
 
 

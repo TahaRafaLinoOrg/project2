@@ -2,7 +2,7 @@
   <h2>Sign Up</h2>
 
 <div class="container">
-        <form class="form" action="signup" method="get">
+        <form class="form" action="signup" method="post">
             <label for="username"></label>
             <input class="input" type="text" name="username" id="username" placeholder="Username">
             <label for="email"></label>
@@ -10,8 +10,8 @@
             <label for="password"></label>
             <input class="input" type="password" name="password" id="password" placeholder="Password">
             <label for="confirm-password"></label>
-            <input class="input" type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Confirm-Password">
-            <button class="btn-register btn" type="submit">BE PART OF OUR TIME</button>
+            {{!-- <input class="input" type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Confirm-Password"> --}}
+            <a href="auth/login"><button class="btn-register btn" type="submit">BE PART OF OUR TIME</button></a>
         </form>
     </div>
 

@@ -1,27 +1,20 @@
-const { Schema, model } = require("mongoose");
+const mongoose = require("mongoose");
 
-const userSchema = new Schema(
+const Schema = mongoose.Schema;
+
+const projectSchema = new Schema(
     {
         name: {
             type: String,
-            name: false,
             unique: true,
         },
         description: {
             type: String,
-            name: false,
-            unique: true,
         },
-        img: {
+        imgUrl: {
             type: String,
-            name: false,
-            unique: true,
         },
-        author: {
-            type: String,
-            name: false,
-            unique: true,
-        }
+        //username: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
     },
     {
         // this second object adds extra properties: `createdAt` and `updatedAt`
@@ -33,6 +26,6 @@ const userSchema = new Schema(
 
 
 
-const Project = model("Project", userSchema);
+const Project = mongoose.model("Project", projectSchema);
 
 module.exports = Project;
