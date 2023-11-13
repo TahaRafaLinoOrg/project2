@@ -10,3 +10,13 @@ a {
 h1 {
   color: 15px;
 }
+
+/*INDEX PAGE*/
+.container{
+  width: 50%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}

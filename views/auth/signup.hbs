@@ -1,21 +1,19 @@
-<div id="form">
+
   <h2>Sign Up</h2>
-  <form action="/auth/signup" method="POST">
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
-
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
-
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
-
-    <button type="submit">Sign Up</button>
-
+<div class="container">
+        <form class="form" action="login" method="get">
+            <label for="username"></label>
+            <input class="input" type="text" name="username" id="username" placeholder="Username">
+            <label for="email"></label>
+            <input class="input" type="email" name="email" id="email" placeholder="E-mail">
+            <label for="password"></label>
+            <input class="input" type="password" name="password" id="password" placeholder="Password">
+            <label for="confirm-password"></label>
+            <input class="input" type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Confirm-Password">
+            <button class="btn-register btn" type="submit">BE PART OF OUR TIME</button>
+        </form>
+    </div>
 
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
