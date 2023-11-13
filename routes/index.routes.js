@@ -19,7 +19,7 @@ router.get("/create-project", (req, res, next) => {
 router.post("/create-project", (req, res, next) => {
   console.log(req.body)
   const {name, description, img} = req.body
-    .then((results)=>{
+    .then((results1)=>{
       return Project.create({ name, description, password: hashedPassword });
     })
   //im here
