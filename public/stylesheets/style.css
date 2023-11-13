@@ -12,3 +12,11 @@ h1 {
 }
 
 /*INDEX PAGE*/
+.container{
+  width: 50%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
