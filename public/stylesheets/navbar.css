@@ -4,7 +4,8 @@ a{
     padding: 10px 20px;
 }
 .navbar{
-    height: 30px;
+    width: 100vw;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
