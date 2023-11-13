@@ -13,7 +13,7 @@ a{
 .navbar > a{
     text-decoration: none;
 }
-ul{
+.ul-navbar{
     width: 30%;
     height: 100%;
     display: flex;

@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  height: 100vh;
+  width: 100vw;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -19,4 +20,21 @@ h1 {
   display: flex;
   flex-direction: column;
   width: 90%;
+}
+
+
+/*PORTFOLIO PAGE*/
+
+.container-portfolio{
+  height: 600px;
+  width: 100%;
+  background-color: blueviolet;
+
+}
+.ul-container{
+  width: 100%;
+  background-color: blue;
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
 }
