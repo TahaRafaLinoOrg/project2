@@ -3,7 +3,7 @@
         <ul>
             <div class="left">
                 <li class="profile-img">profile img</li>
-                <li class="welcome">welcome ${}user</li>
+                <li class="welcome">welcome {{loggedInUser.username}}</li>
             </div>
             <div class="right">
                 <li >Portfolio</li>
@@ -19,8 +19,8 @@
 
         </section>
         <div class="button">
-            <button class="btn" type="submit">CREATE YOUR PROFILE</button>
-            <button class="btn" type="submit">CREATE YOUR FIRST PROJECT</button>
+            <a href=""><button class="btn" type="submit">CREATE YOUR PROFILE</button></a>
+            <a href="create-project"><button class="btn" type="submit">CREATE YOUR FIRST PROJECT</button></a>
         </div>
 
     </div>
