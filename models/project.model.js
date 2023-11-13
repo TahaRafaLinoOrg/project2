@@ -14,7 +14,7 @@ const projectSchema = new Schema(
         imgUrl: {
             type: String,
         },
-        //username: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
+        username: { type: mongoose.Schema.Types.ObjectId, ref: "Username" }
     },
     {
         // this second object adds extra properties: `createdAt` and `updatedAt`
