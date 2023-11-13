@@ -1,8 +1,9 @@
 
-  <h2>Sign Up</h2>
 
-<div class="container">
-        <form class="form" action="signup" method="post">
+<div class="login-signup">
+        <section class="container-form-login-signup">
+          <form class="form-login-signup" action="signup" method="post">
+            <h2 class="login-signup-h2">Signup</h2>
             <label for="username"></label>
             <input class="input" type="text" name="username" id="username" placeholder="Username">
             <label for="email"></label>
@@ -14,6 +15,7 @@
             <a href="auth/login"><button class="btn-register btn" type="submit">BE PART OF OUR TIME</button></a>
 
         </form>
+        </section>
     </div>
 
     {{#if errorMessage}}
