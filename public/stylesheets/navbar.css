@@ -1,0 +1,23 @@
+a{
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 20px;
+}
+.navbar{
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+}
+.navbar > a{
+    text-decoration: none;
+}
+ul{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    align-items: center;
+}
