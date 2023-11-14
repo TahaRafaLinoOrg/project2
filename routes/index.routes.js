@@ -17,14 +17,15 @@ router.get("/", (req, res, next) => {
 
 /*PORTFOLIO*/
 router.get("/portfolio", (req, res, next) => {
-  const {email} = req.session.currentUser
+  const {email, description} = req.session.currentUser
   const loggedInUser = req.session.currentUser
   console.log({ loggedInUser });
   User.findOne({ email })
   .populate("project")
   .then((userpop)=>{
-    console.log("populate log:", userpop)
-    res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project});
+    //console.log("populate log:", userpop)
+    console.log("This console log:", userpop.userImage)
+    res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop});
   })
   .catch((err) => next(err));
 
@@ -51,7 +52,7 @@ router.post("/create-project", (req, res, next) => {
       console.log("results 2", results2)
     })
     .catch((err) => next(err));
-  res.render("portfolio");
+    res.redirect("/portfolio") 
 });
 
 /*USER-DETAILS*/
