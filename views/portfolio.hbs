@@ -15,11 +15,11 @@
 <div>
     <section class="container-cards">
         {{#each arrayOfProjects}}
-        <div class="cards">
-            <h2>{{this.name}}</h2>
-            <p>{{this.description}}</p>
-            <img src="{{this.imgUrl}}" alt="{{this.name}}">
-        </div>
+        <a href="/project/{{this.id}}"><div class="cards">
+             <h2>{{this.name}}</h2>
+            {{!--<p>{{this.description}}</p> --}}
+            <img class="img-portfolio" src="{{this.imgUrl}}" alt="{{this.name}}">
+        </div></a>
         {{/each}}
     </section>
 

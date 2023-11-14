@@ -17,17 +17,17 @@ router.get("/", (req, res, next) => {
 
 /*PORTFOLIO*/
 router.get("/portfolio", (req, res, next) => {
-  const {email, description} = req.session.currentUser
+  const { email, description } = req.session.currentUser
   const loggedInUser = req.session.currentUser
   console.log({ loggedInUser });
   User.findOne({ email })
-  .populate("project")
-  .then((userpop)=>{
-    //console.log("populate log:", userpop)
-    console.log("This console log:", userpop.userImage)
-    res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop});
-  })
-  .catch((err) => next(err));
+    .populate("project")
+    .then((userpop) => {
+      //console.log("populate log:", userpop)
+      console.log("This console log:", userpop.userImage)
+      res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop });
+    })
+    .catch((err) => next(err));
 
 });
 
@@ -52,24 +52,42 @@ router.post("/create-project", (req, res, next) => {
       console.log("results 2", results2)
     })
     .catch((err) => next(err));
-    res.redirect("/portfolio") 
+  res.redirect("/portfolio")
 });
 
 /*USER-DETAILS*/
 router.get("/user-details", (req, res, next) => {
   res.render("user-details")
 })
-router.post("/user-details", (req, res, next) =>{
-  console.log("require user",req.body)
-   const loggedInUser = req.session.currentUser
-  const { userDescription, userImage} = req.body
+router.post("/user-details", (req, res, next) => {
+  console.log("require user", req.body)
+  const loggedInUser = req.session.currentUser
+  const { userDescription, userImage } = req.body
 
-  return User.findByIdAndUpdate(loggedInUser._id, {description: userDescription, userImage: userImage})
-  .then((profileResult) => {
+  return User.findByIdAndUpdate(loggedInUser._id, { description: userDescription, userImage: userImage })
+    .then((profileResult) => {
       console.log("here the profile: ", profileResult)
-     res.redirect("/portfolio") 
+      res.redirect("/portfolio")
+    })
+    .catch((err) => next(err));
 })
+
+
+/*project*/
+
+router.get("/project/:projectId", (req, res, next) => {
+  const id = req.params.projectId;
+  Project.findById(id)
+    .then((results3) => {
+      //console.log(results3)
+      res.render("project", results3)
+    })
+    .catch((err) => next(err));
+
 })
+
+
+
 
 
 

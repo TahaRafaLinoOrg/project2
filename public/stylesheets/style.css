@@ -156,7 +156,13 @@ body {
   width: 200px;
   border: 2px solid black;
   border-radius: 10px;
+
 }
 .btn{
   padding: 10px 20px;
+}
+.cards .img-portfolio{
+  height: 100%;
+  width: 100%;
+
 }
