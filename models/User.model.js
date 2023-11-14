@@ -23,9 +23,20 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    project: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }]
+    project: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
+
+    userImage: {
+      type: String,
+      required: true
+  },
+
+    description : {
+      type: String,
+      required: true,
+    },
     
   },
+  
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
     timestamps: true,
