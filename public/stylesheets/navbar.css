@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+/*
+FONT FAMILY
+font-family: 'Poiret One', sans-serif;
+*/
+
+
 a{
     text-decoration: none;
     cursor: pointer;
     padding: 10px 20px;
+    color: #050551;
 }
 .navbar{
     width: 100vw;
@@ -10,6 +19,7 @@ a{
     justify-content: space-between;
     align-items: center;
     padding-left: 10px;
+    background-color: rgba(255, 255, 255, 0.813);
 }
 .navbar > a{
     text-decoration: none;
@@ -21,4 +31,14 @@ a{
     list-style: none;
     justify-content: space-around;
     align-items: center;
+}
+.fa-solid {
+    margin-right: 10px;
+}
+.logo{
+    font-size: 20px;
+}
+.logout{
+    color: rgb(255, 0, 51);
+    font-weight: 900;
 }
