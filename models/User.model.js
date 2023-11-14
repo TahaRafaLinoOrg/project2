@@ -23,18 +23,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
-    project: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
-
+    
     userImage: {
       type: String,
-      required: true
-  },
-
-    description : {
-      type: String,
-      required: true,
+      default: "Your image here!",
     },
     
+    description : {
+      type: String,
+      default: "Your description here!",
+    },
+    
+    project: [{ type: mongoose.Schema.Types.ObjectId, ref: "Project" }],
   },
   
   {

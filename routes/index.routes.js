@@ -18,8 +18,8 @@ router.get("/", (req, res, next) => {
 /*PORTFOLIO*/
 router.get("/portfolio", (req, res, next) => {
   const loggedInUser = req.session.currentUser
-  const { name, description, imgUrl, username, project } = req.body //work later in this one
-  res.render("portfolio", { loggedInUser, username, project, name, description, imgUrl });
+/*   const { name, description, imgUrl, username, project } = req.body //work later in this one */
+  res.render("portfolio", { loggedInUser});
 });
 
 /*CREATE-PROJECT*/
@@ -52,13 +52,17 @@ router.get("/user-details", (req, res, next) => {
 })
 router.post("/user-details", (req, res, next) =>{
   console.log("require user",req.body)
-  const loggedInUser = req.session.currentUser
-    .then((profileResult) => {
+   const loggedInUser = req.session.currentUser
+  const { userDescription, userImage} = req.body
+
+  return User.findByIdAndUpdate(loggedInUser._id, {description: userDescription, userImage: userImage})
+  .then((profileResult) => {
       console.log("here the profile: ", profileResult)
-      
-      return User.findByIdAndUpdate(loggedInUser._id, { $push: { project: results._id } })
+     res.redirect("/portfolio") 
 })
 })
+
+
 
 
 module.exports = router;
