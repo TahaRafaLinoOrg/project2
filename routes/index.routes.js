@@ -6,14 +6,22 @@ const Project = require("../models/Project.model");
 const User = require("../models/User.model");
 
 /* GET home page */
+/* ONLY SHOW THE INFOMATION  IF YOUR ARE LOGIN* */
+
+
+/*INDEX */
 router.get("/", (req, res, next) => {
   const loggedInUser = req.session.currentUser
   res.render("index", { loggedInUser });
 });
+
+/*PORTFOLIO*/
 router.get("/portfolio", (req, res, next) => {
   const loggedInUser = req.session.currentUser
   res.render("portfolio", { loggedInUser });
 });
+
+/*CREATE-PROJECT*/
 router.get("/create-project", (req, res, next) => {
   res.render("create-project");
 });
@@ -36,6 +44,14 @@ router.post("/create-project", (req, res, next) => {
     .catch((err) => next(err));
   res.render("portfolio");
 });
+
+/*USER-DETAILS*/
+router.get("/user-details", (req, res, next) => {
+  res.render("user-details")
+})
+router.post("/user-details", (req, res, next) =>{
+  
+})
 
 
 module.exports = router;
