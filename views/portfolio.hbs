@@ -11,21 +11,28 @@
             <p>Portfolio of {{loggedInUser.username}}</p>
         </div>
     </ul>
-    <section class="container-cards">
-        <div class="cards1 cards"></div>
-        <div class="cards2 cards"></div>
-        <div class="cards3 cards"></div>
-        <div class="cards4 cards"></div>
-        <div class="cards5 cards"></div>
-        <div class="cards6 cards"></div>
-        <div class="cards7 cards"></div>
-        <div class="cards8 cards"></div>
-        <div class="cards9 cards"></div>
-        <div class="cards10 cards"></div>
-        <div class="cards11 cards"></div>
-        <div class="cards12 cards"></div>
 
+<div>
+    <section class="container-cards">
+        {{#each arrayOfProjects}}
+        <div class="cards">
+            <h2>{{this.name}}</h2>
+            <p>{{this.description}}</p>
+            <img src="{{this.imgUrl}}" alt="{{this.name}}">
+        </div>
+        {{/each}}
     </section>
+
+
+    <section>
+        <h3>{{loggedInUser.username}}</h3>
+        <p>{{loggedInUser.description}}</p>
+        <img src="{{loggedInUser.userImage}}" alt="{{loggedInUser.username}}">
+    </section>
+
+</div>
+
+
     <div class="button">
         <a href="user-details"><button class="btn" type="submit">CREATE YOUR PROFILE</button></a>
         <a href="create-project"><button class="btn" type="submit">CREATE YOUR FIRST PROJECT</button></a>

@@ -17,9 +17,17 @@ router.get("/", (req, res, next) => {
 
 /*PORTFOLIO*/
 router.get("/portfolio", (req, res, next) => {
+  const {email} = req.session.currentUser
   const loggedInUser = req.session.currentUser
-/*   const { name, description, imgUrl, username, project } = req.body //work later in this one */
-  res.render("portfolio", { loggedInUser});
+  console.log({ loggedInUser });
+  User.findOne({ email })
+  .populate("project")
+  .then((userpop)=>{
+    console.log("populate log:", userpop)
+    res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project});
+  })
+  .catch((err) => next(err));
+
 });
 
 /*CREATE-PROJECT*/
