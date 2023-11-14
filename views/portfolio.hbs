@@ -15,19 +15,19 @@
 <div>
     <section class="container-cards">
         {{#each arrayOfProjects}}
-        <div class="cards">
-            <h2>{{this.name}}</h2>
-            <p>{{this.description}}</p>
-            <img src="{{this.imgUrl}}" alt="{{this.name}}">
-        </div>
+        <a href="/project/{{this.id}}"><div class="cards">
+             <h2>{{this.name}}</h2>
+            {{!--<p>{{this.description}}</p> --}}
+            <img class="img-portfolio" src="{{this.imgUrl}}" alt="{{this.name}}">
+        </div></a>
         {{/each}}
     </section>
 
 
     <section>
         <h3>{{loggedInUser.username}}</h3>
-        <p>{{loggedInUser.description}}</p>
-        <img src="{{loggedInUser.userImage}}" alt="{{loggedInUser.username}}">
+        <p>{{userpop.description}}</p>
+        <img src="{{userpop.userImage}}" alt="{{loggedInUser.username}}">
     </section>
 
 </div>
