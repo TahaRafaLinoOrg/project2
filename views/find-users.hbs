@@ -2,4 +2,51 @@
             <input type="search" name="searchUsers">
         </form>
         
-       <h1>{{this.findUser.0.username}}</h1> 
+       
+       
+       
+<div class="container-portfolio">
+    <ul class="ul-container">
+        {{!-- <div class="left">
+            <li class="profile-img">profile img</li>
+            <li class="welcome">welcome {{loggedInUser.username}}</li>
+        </div> --}}
+        <div class="right">
+            <li class="logo-portfolio-page"><i class="fa-solid fa-puzzle-piece fa-xl"></i>
+                <h1>FOR T FOLIO</h1>
+            </li>
+            <p>Portfolio of {{findUser.username}}</p>
+        </div>
+    </ul>
+    
+    <div class="button portfolio-buttons">
+        {{!-- <a href="user-details"><button class="btn" type="submit">CREATE / EDIT YOUR PROFILE</button></a> --}}
+        {{!-- <a href="create-project"><button class="btn" type="submit">CREATE YOUR FIRST PROJECT</button></a> --}}
+        <a href="find-users"><button class="btn" type="submit">find a</button></a>
+    </div>
+    
+    <div class="main-container-portfolio">
+        {{#if this.findUser}}
+        <section class="user-container">
+            <h2 class="username-in-portfolio">{{findUser.username}} </h2>
+            <p>{{findUser.description}}</p>
+            <img class="profile-user-img-portfolio" src="{{findUser.userImage}}" alt="{{findUser.username}}">
+        </section>
+        {{/if}}
+        <section class="container-cards">
+            {{#each arrayOfProjects2}}
+            <a href="/project/{{this.id}}">
+                <div class="cards">
+                    <img class="img-portfolio" src="{{this.imgUrl}}" alt="{{this.name}}">
+                    <div class="name-project">{{this.name}}</div>
+                    {{!--<p>{{this.description}}</p> --}}
+                </div>
+            </a>
+            {{/each}}
+        </section>
+    </div>
+
+
+
+
+</div>
