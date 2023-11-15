@@ -6,7 +6,10 @@
 
     </div>
 <div class="text">
+    {{#if loggedInUser}}
         <h2>Welcome {{loggedInUser.username}}</h2>
+    {{/if}}
+        
     <div class="logo-index">
         <i class="fa-solid fa-puzzle-piece logo"></i><h1>FOR T FOLIO</h1>
     </div>
