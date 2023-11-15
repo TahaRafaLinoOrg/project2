@@ -1,0 +1,25 @@
+@media only screen and (min-width: 400px) {
+  .container-portfolio {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .ul-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .logo-portfolio-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .portfolio-btn{
+    width: 90%;
+    margin: 20px;
+  }
+}

@@ -104,8 +104,8 @@ img {
 
 /*PORTFOLIO PAGE*/
 
-.portfolio-buttons{
-  margin-bottom: 10px;
+.portfolio-btn{
+  margin: 20px;
 }
 
 .container-portfolio {
@@ -125,23 +125,6 @@ img {
   align-items: center;
   list-style: none; */
 }
-
-.left {
-  width: 20%;
-  display: flex;
-  justify-content: space-between;
-}
-
-/* .profile-img {
-  height: 100px;
-  width: 100px;
-  background-color: rgb(253, 193, 114);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: none;
-} */
 
 .welcome {
   display: flex;
@@ -264,45 +247,4 @@ img {
 p,
 img {
   margin-bottom: 20px;
-}
-
-.button {
-  margin-top: 20px;
-}
-
-
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: lightblue;
-  }
-
-  /*INDEX PAGE*/
-.container-index {
-  width: 100vw;
-  background-image: url(/images/foto-de-uma-linda-mulher-pensativa-pondera-sobre-algo-olha-pensativamente-de-lado-tem-algumas-ideias-em-mente-vestida-casualmente-isolada-na-parede-azul-espaco-em-branco-para-seu-anuncio.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.empity {
-  width: 50%;
-}
-
-.text {
-  width: 40%;
-  text-align: center;
-  line-height: 25px;
-  color: rgb(5, 5, 81);
-  font-family: 'Poiret One', sans-serif;
-}
-
-.logo-index {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
 }
