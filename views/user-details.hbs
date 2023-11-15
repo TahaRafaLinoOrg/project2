@@ -1,9 +1,9 @@
-
-<form action="/user-details" method="post">
-
-    <textarea placeholder="decription" name="userDescription"></textarea>
-    <input type="text" name="userImage" id="">
-    <button type="submit">done</button>
-</form>
-
-{{!--something  --}}
+<div class="login-signup">
+    <section class="container-form-login-signup">
+    <form class="form-login-signup" action="/user-details" method="post">
+        <textarea type="text" cols="30" rows="10" name="userDescription">{{!-- {{profileResult.description}} --}}</textarea>
+        <input type="text" name="userImage" id="">
+        <button type="submit">done</button>
+    </form>
+    </section>
+</div>
