@@ -21,12 +21,12 @@ router.get("/", (req, res, next) => {
 router.get("/portfolio", isLoggedIn,  (req, res, next) => {
   const { email, description } = req.session.currentUser
   const loggedInUser = req.session.currentUser
-  console.log({ loggedInUser });
+  //console.log({ loggedInUser });
   User.findOne({ email })
     .populate("project")
     .then((userpop) => {
       //console.log("populate log:", userpop)
-      console.log("This console log:", userpop.userImage)
+      //console.log("This console log:", userpop.userImage)
       res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop });
     })
     .catch((err) => next(err));
@@ -38,12 +38,12 @@ router.get("/create-project", (req, res, next) => {
   res.render("create-project");
 });
 router.post("/create-project", (req, res, next) => {
-  console.log("require body", req.body)
+  //console.log("require body", req.body)
   const loggedInUser = req.session.currentUser
   const { name, description, imgUrl, username } = req.body
   Project.create({ name, description, imgUrl, username: loggedInUser })
     .then((results) => {
-      console.log("results1 ", results)
+      //console.log("results1 ", results)
 
       //const loggedInUser = req.session.currentUser
       //const userId = req.body;
@@ -62,13 +62,13 @@ router.get("/user-details", (req, res, next) => {
   res.render("user-details")
 })
 router.post("/user-details", (req, res, next) => {
-  console.log("require user", req.body)
+  //console.log("require user", req.body)
   const loggedInUser = req.session.currentUser
   const { userDescription, userImage } = req.body
 
   return User.findByIdAndUpdate(loggedInUser._id, { description: userDescription, userImage: userImage })
     .then((profileResult) => {
-      console.log("here the profile: ", profileResult)
+      //console.log("here the profile: ", profileResult)
       res.redirect("/portfolio")
     })
     .catch((err) => next(err));
@@ -89,7 +89,7 @@ router.get("/project/:projectId", (req, res, next) => {
 
 /*project Edit*/
 
-router.get("/edit-project/:_id", (req, res) => {
+router.get("/edit-project/:_id", (req, res, next) => {
   const projectId = req.params._id
   res.render("edit-project", {projectId})
 })
@@ -99,12 +99,27 @@ router.post("/edit-project/:_id", (req, res, next) => {
   const { name, description, imgUrl } = req.body
   return Project.findByIdAndUpdate(projectId, { name, description, imgUrl })
     .then((projectResult) => {
-      console.log("PROJECT RESULT", projectResult)
+      //console.log("PROJECT RESULT", projectResult)
       res.redirect("/portfolio")
     })
     .catch((err) => next(err))
 })
-
+ /*DELETE-PROJECT */
+router.get("/delete-project/:_id", (req, res, next) =>{
+  const projectId = req.params._id
+  console.log("reading");
+  res.render("delete-project", {projectId})
+})
+router.post("/delete-project/:_id", (req, res, next) => {
+  const projectId = req.params._id;
+  console.log("working?");
+  return Project.deleteOne({_id: projectId})
+    .then((projectDelete) => {
+      console.log("PROJECT DELETE RESULT", projectDelete)
+      res.redirect("/portfolio")
+    })
+    .catch((err) => next("this a error", err))
+})
 
 
 
