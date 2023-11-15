@@ -45,7 +45,7 @@ router.post("/create-project", (req, res, next) => {
 
       //const loggedInUser = req.session.currentUser
       //const userId = req.body;
-      const projectId = req.body;
+
       return User.findByIdAndUpdate(loggedInUser._id, { $push: { project: results._id } })
     })
     .then((results2) => {
@@ -85,7 +85,23 @@ router.get("/project/:projectId", (req, res, next) => {
     .catch((err) => next(err));
 })
 
+/*project Edit*/
 
+router.get("/edit-project/:_id", (req, res) => {
+  const projectId = req.params._id
+  res.render("edit-project", {projectId})
+})
+
+router.post("/edit-project/:_id", (req, res, next) => {
+  const projectId = req.params._id;
+  const { name, description, imgUrl } = req.body
+  return Project.findByIdAndUpdate(projectId, { name, description, imgUrl })
+    .then((projectResult) => {
+      console.log("PROJECT RESULT", projectResult)
+      res.redirect("/portfolio")
+    })
+    .catch((err) => next(err))
+})
 
 
 

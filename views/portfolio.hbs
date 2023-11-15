@@ -12,22 +12,24 @@
         </div>
     </ul>
 
-<div class="main-container-portfolio">
-    <section class="user-container">
-        <h4>{{loggedInUser.username}}</h4>
-        <p>{{userpop.description}}</p>
-        <img class="profile-user-img-portfolio" src="{{userpop.userImage}}" alt="{{loggedInUser.username}}">
-    </section>
+    <div class="main-container-portfolio">
+        <section class="user-container">
+            <h4>{{loggedInUser.username}}</h4>
+            <p>{{userpop.description}}</p>
+            <img class="profile-user-img-portfolio" src="{{userpop.userImage}}" alt="{{loggedInUser.username}}">
+        </section>
         <section class="container-cards">
-        {{#each arrayOfProjects}}
-        <a href="/project/{{this.id}}"><div class="cards">
-            <img class="img-portfolio" src="{{this.imgUrl}}" alt="{{this.name}}">
-             <div class="name-project">{{this.name}}</div>
-            {{!--<p>{{this.description}}</p> --}}
-        </div></a>
-        {{/each}}
-    </section>
-</div>
+            {{#each arrayOfProjects}}
+            <a href="/project/{{this.id}}">
+                <div class="cards">
+                    <img class="img-portfolio" src="{{this.imgUrl}}" alt="{{this.name}}">
+                    <div class="name-project">{{this.name}}</div>
+                    {{!--<p>{{this.description}}</p> --}}
+                </div>
+            </a>
+            {{/each}}
+        </section>
+    </div>
 
 
     <div class="button">
