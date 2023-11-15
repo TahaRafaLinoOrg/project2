@@ -2,8 +2,14 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require("mongoose");
 
+const fileUploader = require('../config/cloudinary.config');
+
 const Project = require("../models/Project.model");
 const User = require("../models/User.model");
+
+
+
+
 
 /* GET home page */
 /* ONLY SHOW THE INFOMATION  IF YOUR ARE LOGIN* */
@@ -59,18 +65,20 @@ router.post("/create-project", (req, res, next) => {
 router.get("/user-details", (req, res, next) => {
   res.render("user-details")
 })
-router.post("/user-details", (req, res, next) => {
+router.post("/user-details", fileUploader.single('userImage'), (req, res, next) => {
   console.log("require user", req.body)
   const loggedInUser = req.session.currentUser
   const { userDescription, userImage } = req.body
 
-  return User.findByIdAndUpdate(loggedInUser._id, { description: userDescription, userImage: userImage })
+  return User.findByIdAndUpdate(loggedInUser._id, { description: userDescription, userImage: req.file.path })
     .then((profileResult) => {
       console.log("here the profile: ", profileResult)
       res.redirect("/portfolio")
     })
     .catch((err) => next(err));
 })
+
+
 
 
 /*project*/
