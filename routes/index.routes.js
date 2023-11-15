@@ -83,7 +83,6 @@ router.get("/project/:projectId", (req, res, next) => {
       res.render("project", results3)
     })
     .catch((err) => next(err));
-
 })
 
 
