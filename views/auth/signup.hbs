@@ -13,13 +13,13 @@
             <label for="confirm-password"></label>
             {{!-- <input class="input" type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Confirm-Password"> --}}
             <a href="auth/login"><button class="btn-register btn" type="submit">BE PART OF OUR TIME</button></a>
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
 
         </form>
         </section>
     </div>
 
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
   </form>
 </div>
