@@ -14,19 +14,19 @@ const userSchema = new Schema(
     },
     email: {
       type: String,
-      required: true,
+      required: [true, 'email is require'],
       unique: true,
       trim: true,
       lowercase: true,
     },
     password: {
       type: String,
-      required: true,
+      required: [true, 'email is require'],
     },
     
     userImage: {
       type: String,
-      default: "Your image here!",
+      default: 'https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/default-avatar-profile-picture-male-icon.png',
     },
     
     description : {
