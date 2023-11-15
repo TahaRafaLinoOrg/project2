@@ -1,7 +1,7 @@
 <div class="login-signup">
     <section class="container-form-login-signup">
     <form class="form-login-signup" action="/user-details" method="post">
-        <textarea type="text" cols="30" rows="10" name="userDescription">{{!-- {{profileResult.description}} --}}</textarea>
+        <textarea type="text" cols="30" rows="10" name="userDescription">{{userInformation.currentUser.description}}</textarea>
         <input type="text" name="userImage" id="">
         <button type="submit">done</button>
     </form>

@@ -30,6 +30,7 @@ router.get("/portfolio", isLoggedIn,  (req, res, next) => {
       res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop });
     })
     .catch((err) => next(err));
+    /* this part we trying to work */
 
 });
 
@@ -59,7 +60,9 @@ router.post("/create-project", (req, res, next) => {
 
 /*USER-DETAILS*/
 router.get("/user-details", (req, res, next) => {
-  res.render("user-details")
+  const userInformation = req.session
+  console.log(userInformation)
+  res.render("user-details", {userInformation})
 })
 router.post("/user-details", (req, res, next) => {
   //console.log("require user", req.body)
@@ -91,7 +94,13 @@ router.get("/project/:projectId", (req, res, next) => {
 
 router.get("/edit-project/:_id", (req, res, next) => {
   const projectId = req.params._id
-  res.render("edit-project", {projectId})
+  //const userInformation = req.session
+  Project.findById(projectId)
+  .then((thisProject)=>{
+    //console.log("hola aca esa el req.params",req)
+    res.render("edit-project", {projectId,thisProject})
+  })
+  
 })
 
 router.post("/edit-project/:_id", (req, res, next) => {
@@ -121,6 +130,21 @@ router.post("/delete-project/:_id", (req, res, next) => {
     .catch((err) => next("this a error", err))
 })
 
+/*RELATIONSHIP BETWEEN USERS */
+router.get("/find-users", (req,res,next) =>{
+  console.log("this working");
+  res.render("find-users")
+})
+router.post("/find-users", (req, res, next) => {
+  console.log("what about this");
+  const { searchUsers } = req.body
+  return User.find({username: searchUsers})
+    .then((findUser) => {
+      console.log("the user is: ", findUser)
+      res.render("find-users", {findUser})
+    })
+    .catch((err) => next("this a error", err))
+})
 
 
 
