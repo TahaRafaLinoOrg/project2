@@ -3,8 +3,8 @@
 
         <div class="section-project">
             <form class="project-form" action="/edit-project/{{projectId}}" method="post">
-                <input class="input" type="text" name="name" id="new-project" placeholder="New Project">
-                <textarea class="input" name="description" id="description" cols="30" rows="10" placeholder="Describe you project"></textarea>
+                <textarea class="input" type="text" name="name" id="new-project">{{thisProject.name}}</textarea>
+                <textarea class="input" name="description" id="description" cols="30" rows="10">{{thisProject.description}}</textarea>
                 <input class="input" type="text" name="imgUrl" id="img" placeholder="Image">
                 <button class="btn">DONE</button>
             </form>
