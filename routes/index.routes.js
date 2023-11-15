@@ -5,8 +5,10 @@ const mongoose = require("mongoose");
 const Project = require("../models/Project.model");
 const User = require("../models/User.model");
 
-/* GET home page */
-/* ONLY SHOW THE INFOMATION  IF YOUR ARE LOGIN* */
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
+
+
 
 
 /*INDEX */
@@ -16,7 +18,7 @@ router.get("/", (req, res, next) => {
 });
 
 /*PORTFOLIO*/
-router.get("/portfolio", (req, res, next) => {
+router.get("/portfolio", isLoggedIn,  (req, res, next) => {
   const { email, description } = req.session.currentUser
   const loggedInUser = req.session.currentUser
   console.log({ loggedInUser });
