@@ -1,10 +1,3 @@
-<form action="/find-users" method="post">
-            <input type="search" name="searchUsers">
-        </form>
-        
-       
-       
-       
 <div class="container-portfolio">
     <ul class="ul-container">
         {{!-- <div class="left">
@@ -15,16 +8,22 @@
             <li class="logo-portfolio-page"><i class="fa-solid fa-puzzle-piece fa-xl"></i>
                 <h1>FOR T FOLIO</h1>
             </li>
+            {{#if this.findUser}}
             <p>Portfolio of {{findUser.username}}</p>
+            {{/if}}
         </div>
     </ul>
-    
+
     <div class="button portfolio-buttons">
         {{!-- <a href="user-details"><button class="btn" type="submit">CREATE / EDIT YOUR PROFILE</button></a> --}}
         {{!-- <a href="create-project"><button class="btn" type="submit">CREATE YOUR FIRST PROJECT</button></a> --}}
-        <a href="find-users"><button class="btn" type="submit">find a</button></a>
+        {{!-- <a href="find-users"><button class="btn" type="submit">find a</button></a> --}}
+        <form action="/find-users" method="post">
+            <input type="search" name="searchUsers">
+            <button>🔎</button>
+        </form>
     </div>
-    
+
     <div class="main-container-portfolio">
         {{#if this.findUser}}
         <section class="user-container">
