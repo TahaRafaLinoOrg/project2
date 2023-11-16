@@ -46,19 +46,19 @@ a {
 .btn-navbar {
     padding: 10px;
 }
-
-.logout {
+.btn-navbar > a {
+    color: #191D88;
+}
+#logout {
     color: #FFC436;
     font-weight: 900;
 }
 
-.btn-logout {
+/* .btn-logout {
     color: #FFC436;
-}
+} */
 
-.btn-navbar > a {
-    color: #191D88;
-}
+
 
 @media only screen and (min-width: 400px) {
     a {

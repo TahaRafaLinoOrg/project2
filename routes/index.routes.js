@@ -36,7 +36,8 @@ router.get("/portfolio", isLoggedIn, (req, res, next) => {
 
 /*CREATE-PROJECT*/
 router.get("/create-project", (req, res, next) => {
-  res.render("create-project");
+  const loggedInUser = req.session.currentUser
+  res.render("create-project",{loggedInUser});
 });
 router.post("/create-project", (req, res, next) => {
   //console.log("require body", req.body)
@@ -61,8 +62,9 @@ router.post("/create-project", (req, res, next) => {
 /*USER-DETAILS*/
 router.get("/user-details", (req, res, next) => {
   const userInformation = req.session
+  const loggedInUser = req.session.currentUser
   console.log(userInformation)
-  res.render("user-details", { userInformation })
+  res.render("user-details", { userInformation, loggedInUser})
 })
 router.post("/user-details", (req, res, next) => {
   //console.log("require user", req.body)
@@ -107,12 +109,13 @@ router.get("/project/:projectId", (req, res, next) => {
 /*project Edit*/
 
 router.get("/edit-project/:_id", (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //const userInformation = req.session
   Project.findById(projectId)
     .then((thisProject) => {
       //console.log("hola aca esa el req.params",req)
-      res.render("edit-project", { projectId, thisProject })
+      res.render("edit-project", { projectId, thisProject, loggedInUser })
     })
 
 })
@@ -129,9 +132,10 @@ router.post("/edit-project/:_id", (req, res, next) => {
 })
 /*DELETE-PROJECT */
 router.get("/delete-project/:_id", (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //console.log("reading");
-  res.render("delete-project", { projectId })
+  res.render("delete-project", { projectId, loggedInUser })
 })
 router.post("/delete-project/:_id", (req, res, next) => {
   const projectId = req.params._id;
@@ -146,8 +150,9 @@ router.post("/delete-project/:_id", (req, res, next) => {
 
 /*RELATIONSHIP BETWEEN USERS */
 router.get("/find-users", (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   console.log("this working");
-  res.render("find-users")
+  res.render("find-users", {loggedInUser})
 })
 router.post("/find-users", (req, res, next) => {
   console.log("what about this");
