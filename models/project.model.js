@@ -17,7 +17,6 @@ const projectSchema = new Schema(
         username: { type: mongoose.Schema.Types.ObjectId, ref: "Username" }
     },
     {
-        // this second object adds extra properties: `createdAt` and `updatedAt`
         timestamps: true,
     }
 
