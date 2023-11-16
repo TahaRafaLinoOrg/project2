@@ -60,7 +60,8 @@ margin-top: 35px;
     transition: 0.5s;
     cursor: pointer;
     overflow:scroll;
-    overflow-x:hidden
+    overflow-x:hidden;
+    overflow-y:hidden
 }
 
 .user-container:hover {
