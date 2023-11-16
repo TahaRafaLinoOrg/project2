@@ -4,7 +4,7 @@
 /*
 font-family: 'Poiret One', sans-serif;
 */
-
+@media only screen and (min-width: 400px) {
 
 /*UNIVERSAL*/
 * {
@@ -247,4 +247,5 @@ img {
 p,
 img {
   margin-bottom: 20px;
+}
 }

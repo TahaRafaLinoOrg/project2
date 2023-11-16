@@ -1,11 +1,16 @@
 @media only screen and (max-width: 400px) {
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
     a{
         text-decoration: none;
         padding: 10px;
         cursor: pointer;
     }
     .navbar{
-        width: 100%;
+        width: 100vw;
         display: flex;
         justify-content: space-between;
         align-items: center;
