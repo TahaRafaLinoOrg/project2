@@ -1,28 +1,31 @@
 <html lang="en">
 
-  <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>{{appTitle}}</title>
-    <link rel="stylesheet" href="../stylesheets/style.css" />
-    <link rel="stylesheet" href="../stylesheets/navbar.css">
-  </head>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>{{appTitle}}</title>
+  <link rel="stylesheet" href="../stylesheets/style.css" />
+  <link rel="stylesheet" href="../stylesheets/navbar.css">
+  <link rel="stylesheet" href="../stylesheets/portfolio.css">
+</head>
 
-  <body>
-        <nav class="navbar">
-        <a class="logo" href="/portfolio"><i class="fa-solid fa-puzzle-piece logo"></i>FOR T FOLIO</a>
-        <ul class="ul-navbar">
-            
-            <li class="btn-navbar"><a href="/auth/login">LOGIN</a></li>
-            <li class="btn-navbar"><a href="/auth/signup">SIGNUP</a></li>
-            <li class="btn-navbar"><a class="logout" href="/auth/logout">LOGOUT</a></li>
-        </ul>
-    </nav>
-    {{{body}}}
+<body>
+  <nav class="navbar">
+    <a class="logo" href="/portfolio"><i class="fa-solid fa-puzzle-piece logo"></i>FOR T FOLIO</a>
+    <ul class="ul-navbar">
 
-    <script src="/js/script.js"></script>
-  </body>
+      <li class="btn-navbar"><a href="/auth/login">LOGIN</a></li>
+      <li class="btn-navbar"><a href="/auth/signup">SIGNUP</a></li>
+      <li class="btn-navbar"><a class="logout" href="/auth/logout">LOGOUT</a></li>
+    </ul>
+  </nav>
+  {{{body}}}
+
+  <script src="/js/script.js"></script>
+</body>
 
 </html>
