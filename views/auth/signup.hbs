@@ -5,20 +5,20 @@
           <form class="form-login-signup" action="signup" method="post">
             <h2 class="login-signup-h2">Sign Up</h2>
             <label for="username"></label>
-            <input class="input input-login-signup" type="text" name="username" id="username" placeholder="Username">
+            <input class="input" type="text" name="username" id="username" placeholder="Username">
             <label for="email"></label>
-            <input class="input input-login-signup" type="email" name="email" id="email" placeholder="Email">
+            <input class="input" type="email" name="email" id="email" placeholder="Email">
             <label for="password"></label>
-            <input class="input input-login-signup" type="password" name="password" id="password" placeholder="Password">
+            <input class="input" type="password" name="password" id="password" placeholder="Password">
             <label for="confirm-password"></label>
             {{!-- <input class="input" type="confirm-password" name="confirm-password" id="confirm-password" placeholder="Confirm-Password"> --}}
-            <a href="auth/login"><button class="btn-register btn" type="submit">Sign Up</button></a>
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
+            <a href="auth/login"><button class="btn" type="submit">Sign Up</button></a>
 
         </form>
         </section>
+    {{#if errorMessage}}
+      <p class="error">{{errorMessage}}</p>
+    {{/if}}
     </div>
 
   </form>
