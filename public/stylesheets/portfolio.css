@@ -2,7 +2,12 @@
 
 body {
     background: linear-gradient(90deg, rgba(25, 29, 136, 1) 0%, rgba(20, 80, 163, 1) 35%, rgba(51, 124, 207, 1) 100%);
+   
 }
+
+
+
+
 
 .main-container-portfolio{
 margin-top: 35px;
@@ -61,7 +66,11 @@ margin-top: 35px;
     cursor: pointer;
     overflow:scroll;
     overflow-x:hidden;
-    overflow-y:hidden
+    scrollbar-width: none;
+}
+
+.user-container::webkit-scrollbar{
+    -ms-overflow-style: none;
 }
 
 .user-container:hover {
