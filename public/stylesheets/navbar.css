@@ -5,13 +5,24 @@ FONT FAMILY
 font-family: 'Poiret One', sans-serif;
 */
 
-body{
+/* colors
+
+#191D88
+#1450A3
+#337CCF
+#FFC436 */
+
+
+
+body {
     width: 100vw;
 }
-a{
+
+a {
     text-decoration: none;
 }
-.navbar{
+
+.navbar {
     width: 100vw;
     height: 5%;
     display: flex;
@@ -19,32 +30,45 @@ a{
     justify-content: space-between;
     font-size: 10px;
 }
-.ul-navbar{
+
+.ul-navbar {
     width: 50%;
     display: flex;
     justify-content: space-around;
 
     list-style: none;
 }
+
 .fa-solid {
     margin: 0 5px;
 }
-.btn-navbar{
+
+.btn-navbar {
     padding: 10px;
 }
-.logout{
-    color: rgb(255, 0, 51);
+.btn-navbar > a {
+    color: #191D88;
+}
+#logout {
+    color: #FFC436;
     font-weight: 900;
 }
 
+/* .btn-logout {
+    color: #FFC436;
+} */
+
+
+
 @media only screen and (min-width: 400px) {
-    a{
+    a {
         text-decoration: none;
         cursor: pointer;
         padding: 10px 20px;
         color: #050551;
     }
-    .navbar{
+
+    .navbar {
         width: 100vw;
         height: 50px;
         display: flex;
@@ -53,10 +77,12 @@ a{
         padding-left: 10px;
         background-color: rgba(255, 255, 255, 0.813);
     }
-    .navbar > a{
+
+    .navbar>a {
         text-decoration: none;
     }
-    .ul-navbar{
+
+    .ul-navbar {
         width: 30%;
         height: 100%;
         display: flex;
@@ -64,14 +90,17 @@ a{
         justify-content: space-around;
         align-items: center;
     }
+
     .fa-solid {
         margin-right: 10px;
     }
-    .logo{
+
+    .logo {
         font-size: 20px;
     }
-    .logout{
-        color: rgb(255, 0, 51);
+
+    .logout {
+        color: #FFC436;
         font-weight: 900;
     }
-  }
+}

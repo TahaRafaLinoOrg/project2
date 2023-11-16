@@ -1,0 +1,35 @@
+@media only screen and (max-width: 400px) {
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .empity {
+        display: none;
+    }
+    .container-index {
+        width: 100%;
+        height: calc(100% - 50px);
+        background-image: url(/images/foto-de-uma-linda-mulher-pensativa-pondera-sobre-algo-olha-pensativamente-de-lado-tem-algumas-ideias-em-mente-vestida-casualmente-isolada-na-parede-azul-espaco-em-branco-para-seu-anuncio.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 0 20px;
+      }
+      .text {
+        color: rgb(5, 5, 81);
+        font-family: 'Poiret One', sans-serif;
+        display: flex;
+        flex-direction: column;
+
+      }
+      
+      .logo-index {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+      }
+}

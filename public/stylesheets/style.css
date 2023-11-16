@@ -100,7 +100,7 @@ img {
   justify-content: center;
   align-items: center;
   background-color: rgba(81, 214, 255, 0.865);
-  border-radius: 20px;
+  border-radius: 50px 0 0 0;
 }
 
 .form-login-signup {

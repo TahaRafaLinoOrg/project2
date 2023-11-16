@@ -35,8 +35,9 @@ router.get("/portfolio", isLoggedIn, (req, res, next) => {
 });
 
 /*CREATE-PROJECT*/
-router.get("/create-project", (req, res, next) => {
-  res.render("create-project");
+router.get("/create-project", isLoggedIn, (req, res, next) => {
+  const loggedInUser = req.session.currentUser
+  res.render("create-project", { loggedInUser });
 });
 router.post("/create-project", (req, res, next) => {
   //console.log("require body", req.body)
@@ -59,10 +60,11 @@ router.post("/create-project", (req, res, next) => {
 });
 
 /*USER-DETAILS*/
-router.get("/user-details", (req, res, next) => {
+router.get("/user-details", isLoggedIn, (req, res, next) => {
   const userInformation = req.session
+  const loggedInUser = req.session.currentUser
   console.log(userInformation)
-  res.render("user-details", { userInformation })
+  res.render("user-details", { userInformation, loggedInUser })
 })
 router.post("/user-details", (req, res, next) => {
   //console.log("require user", req.body)
@@ -80,7 +82,7 @@ router.post("/user-details", (req, res, next) => {
 
 /*project*/
 
-router.get("/project/:projectId", (req, res, next) => {
+router.get("/project/:projectId", isLoggedIn, (req, res, next) => {
   const id = req.params.projectId;
   const loggedInUser = req.session.currentUser
   Project.findById(id)
@@ -93,7 +95,7 @@ router.get("/project/:projectId", (req, res, next) => {
       //console.log("toString", results3UsernameString );
       let match = false
       if (loggedInUser._id == results3UsernameString) {
-        let match = true 
+        let match = true
         //console.log(match)
         res.render("project", { results3, loggedInUser, match })
       } else {
@@ -106,13 +108,14 @@ router.get("/project/:projectId", (req, res, next) => {
 
 /*project Edit*/
 
-router.get("/edit-project/:_id", (req, res, next) => {
+router.get("/edit-project/:_id", isLoggedIn, (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //const userInformation = req.session
   Project.findById(projectId)
     .then((thisProject) => {
       //console.log("hola aca esa el req.params",req)
-      res.render("edit-project", { projectId, thisProject })
+      res.render("edit-project", { projectId, thisProject, loggedInUser })
     })
 
 })
@@ -128,10 +131,11 @@ router.post("/edit-project/:_id", (req, res, next) => {
     .catch((err) => next(err))
 })
 /*DELETE-PROJECT */
-router.get("/delete-project/:_id", (req, res, next) => {
+router.get("/delete-project/:_id", isLoggedIn, (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //console.log("reading");
-  res.render("delete-project", { projectId })
+  res.render("delete-project", { projectId, loggedInUser })
 })
 router.post("/delete-project/:_id", (req, res, next) => {
   const projectId = req.params._id;
@@ -145,19 +149,22 @@ router.post("/delete-project/:_id", (req, res, next) => {
 })
 
 /*RELATIONSHIP BETWEEN USERS */
-router.get("/find-users", (req, res, next) => {
+router.get("/find-users", isLoggedIn, (req, res, next) => {
+  const loggedInUser = req.session.currentUser
   console.log("this working");
-  res.render("find-users")
+  res.render("find-users", { loggedInUser })
 })
 router.post("/find-users", (req, res, next) => {
-  console.log("what about this");
+  //console.log("what about this");
   const { searchUsers } = req.body
-  User.findOne({ username: searchUsers })
+  const loggedInUser = req.session.currentUser
+  const regexPattern = new RegExp(searchUsers, 'i');
+  User.findOne({ username: { $regex: regexPattern } })
     .populate("project")
     .then((findUser) => {
-      //console.log("the user is: ", findUser)
+      console.log("the user is finduser: ", findUser)
       const arrayOfProjects2 = findUser.project
-      res.render("find-users", { findUser, arrayOfProjects2 })
+      res.render("find-users", { findUser, arrayOfProjects2, loggedInUser })
     })
     .catch((err) => next("this a error", err))
 })
