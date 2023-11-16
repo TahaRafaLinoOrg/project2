@@ -3,6 +3,11 @@
 
 /*
 font-family: 'Poiret One', sans-serif;
+
+#191D88
+#1450A3
+#337CCF
+#FFC436
 */
 
 
@@ -46,7 +51,15 @@ body {
   margin-bottom: 10px;
   border: none;
 }
-
+.error{
+  margin-top: 20px;
+  color: #FFC436;
+}
+h2{
+  color: #1450A3;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
 img {
   border-radius: 10px;
   max-height: 400px;
@@ -88,9 +101,10 @@ img {
   height: 100%;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgb(0, 195, 255);
+  background-color: #191D88;
 }
 
 .container-form-login-signup {
@@ -99,8 +113,9 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(81, 214, 255, 0.865);
-  border-radius: 50px 0 0 0;
+  background-color: #1450A3;
+  box-shadow: -1px -1px 15px -3px #FFC436;
+  border-radius: 50px 0 50px 0;
 }
 
 .form-login-signup {
@@ -272,7 +287,9 @@ img {
   padding: 0 20px;
   text-align: center;
 }
-
+.edit-project-description > p {
+  max-height: 200px;
+}
 .section-project>h1,
 p,
 img {
@@ -281,41 +298,4 @@ img {
 
 .button {
   margin-top: 20px;
-}
-
-
-@media only screen and (max-width: 400px) {
-  body {
-    background-color: lightblue;
-  }
-
-  /*INDEX PAGE*/
-  .container-index {
-    width: 100vw;
-    background-image: url(/images/foto-de-uma-linda-mulher-pensativa-pondera-sobre-algo-olha-pensativamente-de-lado-tem-algumas-ideias-em-mente-vestida-casualmente-isolada-na-parede-azul-espaco-em-branco-para-seu-anuncio.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 20px;
-  }
-
-  .empity {
-    width: 50%;
-  }
-
-  .text {
-    width: 40%;
-    text-align: center;
-    line-height: 25px;
-    color: rgb(5, 5, 81);
-    font-family: 'Poiret One', sans-serif;
-  }
-
-  .logo-index {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
 }
