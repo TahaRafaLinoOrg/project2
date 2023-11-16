@@ -155,12 +155,12 @@ router.get("/find-users", (req, res, next) => {
   res.render("find-users", {loggedInUser})
 })
 router.post("/find-users", (req, res, next) => {
-  console.log("what about this");
+  //console.log("what about this");
   const { searchUsers } = req.body
   User.findOne({ username: searchUsers })
     .populate("project")
     .then((findUser) => {
-      //console.log("the user is: ", findUser)
+      console.log("the user is finduser: ", findUser)
       const arrayOfProjects2 = findUser.project
       res.render("find-users", { findUser, arrayOfProjects2 })
     })
