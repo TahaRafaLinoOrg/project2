@@ -21,16 +21,12 @@ router.get("/", (req, res, next) => {
 router.get("/portfolio", isLoggedIn, (req, res, next) => {
   const { email, description } = req.session.currentUser
   const loggedInUser = req.session.currentUser
-  //console.log({ loggedInUser });
   User.findOne({ email })
     .populate("project")
     .then((userpop) => {
-      //console.log("populate log:", userpop)
-      //console.log("This console log:", userpop.userImage)
       res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop });
     })
     .catch((err) => next(err));
-  /* this part we trying to work */
 
 });
 
@@ -40,16 +36,10 @@ router.get("/create-project", isLoggedIn, (req, res, next) => {
   res.render("create-project", { loggedInUser });
 });
 router.post("/create-project", (req, res, next) => {
-  //console.log("require body", req.body)
   const loggedInUser = req.session.currentUser
   const { name, description, imgUrl, username } = req.body
   Project.create({ name, description, imgUrl, username: loggedInUser })
     .then((results) => {
-      //console.log("results1 ", results)
-
-      //const loggedInUser = req.session.currentUser
-      //const userId = req.body;
-
       return User.findByIdAndUpdate(loggedInUser._id, { $push: { project: results._id } })
     })
     .then((results2) => {
@@ -67,13 +57,11 @@ router.get("/user-details", isLoggedIn, (req, res, next) => {
   res.render("user-details", { userInformation, loggedInUser })
 })
 router.post("/user-details", (req, res, next) => {
-  //console.log("require user", req.body)
   const loggedInUser = req.session.currentUser
   const { userDescription, userImage } = req.body
 
   return User.findByIdAndUpdate(loggedInUser._id, { description: userDescription, userImage: userImage })
     .then((profileResult) => {
-      //console.log("here the profile: ", profileResult)
       res.redirect("/portfolio")
     })
     .catch((err) => next(err));
@@ -87,16 +75,11 @@ router.get("/project/:projectId", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   Project.findById(id)
     .then((results3) => {
-      //console.log("este es el results3:",results3);
-      //console.log("Este es el logged in user:",loggedInUser);
-      //console.log("primero loggedInUser._id depois results3.username :",loggedInUser._id, results3.username );
       const results3Username = results3.username;
       const results3UsernameString = results3Username.toString();
-      //console.log("toString", results3UsernameString );
       let match = false
       if (loggedInUser._id == results3UsernameString) {
         let match = true
-        //console.log(match)
         res.render("project", { results3, loggedInUser, match })
       } else {
         console.log(match)
@@ -111,10 +94,8 @@ router.get("/project/:projectId", isLoggedIn, (req, res, next) => {
 router.get("/edit-project/:_id", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   const projectId = req.params._id
-  //const userInformation = req.session
   Project.findById(projectId)
     .then((thisProject) => {
-      //console.log("hola aca esa el req.params",req)
       res.render("edit-project", { projectId, thisProject, loggedInUser })
     })
 
@@ -125,7 +106,6 @@ router.post("/edit-project/:_id", (req, res, next) => {
   const { name, description, imgUrl } = req.body
   return Project.findByIdAndUpdate(projectId, { name, description, imgUrl })
     .then((projectResult) => {
-      //console.log("PROJECT RESULT", projectResult)
       res.redirect("/portfolio")
     })
     .catch((err) => next(err))
@@ -134,7 +114,6 @@ router.post("/edit-project/:_id", (req, res, next) => {
 router.get("/delete-project/:_id", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   const projectId = req.params._id
-  //console.log("reading");
   res.render("delete-project", { projectId, loggedInUser })
 })
 router.post("/delete-project/:_id", (req, res, next) => {
@@ -142,20 +121,18 @@ router.post("/delete-project/:_id", (req, res, next) => {
   console.log("working?");
   return Project.deleteOne({ _id: projectId })
     .then((projectDelete) => {
-      //console.log("PROJECT DELETE RESULT", projectDelete)
       res.redirect("/portfolio")
     })
     .catch((err) => next("this a error", err))
 })
 
-/*RELATIONSHIP BETWEEN USERS */
+/*FIND OTHER USERS */
 router.get("/find-users", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   console.log("this working");
   res.render("find-users", { loggedInUser })
 })
 router.post("/find-users", (req, res, next) => {
-  //console.log("what about this");
   const { searchUsers } = req.body
   const loggedInUser = req.session.currentUser
   const regexPattern = new RegExp(searchUsers, 'i');
