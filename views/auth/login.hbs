@@ -3,11 +3,11 @@
     <div class="login-signup">
         <section class="container-form-login-signup">
           <form class="form-login-signup" action="login" method="post">
-            <h2 class="login-signup-h2">Login</h2>
+            <h2 class="login-signup-h2">Log In</h2>
             {{!-- <input class="input" type="text" name="username" id="username" placeholder="username"> --}}
-            <input class="input" type="text" name="email" id="email" placeholder="email">
-            <input class="input" type="password" name="password" id="password" placeholder="Password">
-            <button class="btn-login btn" type="submit">WELCOME TO THE WORLD</button>
+            <input class="input input-login-signup" type="text" name="email" id="email" placeholder="email">
+            <input class="input input-login-signup" type="password" name="password" id="password" placeholder="Password">
+            <button class="btn-login btn" type="submit">Log In</button>
     {{#if errorMessage}}
       <p class="error">{{errorMessage}}</p>
     {{/if}}
