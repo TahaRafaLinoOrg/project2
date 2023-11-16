@@ -23,7 +23,6 @@
 
 .btn-login {
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-
 }
 
 .btn-register {
@@ -32,4 +31,5 @@
 
 .login-signup-h2 {
     font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: #191D88;
 }
