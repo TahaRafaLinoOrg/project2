@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+/* colors
+
+#191D88
+#1450A3
+#337CCF
+#FFC436 */
+
+
+.login-signup {
+    background-color: #191D88;
+}
+
+.container-form-login-signup {
+    background-color: #1450A3;
+    box-shadow: -1px -1px 15px -3px #FFC436;
+}
+
+.input-login-signup {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.btn-login {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+}
+
+.btn-register {
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.login-signup-h2 {
+    font: 30px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
