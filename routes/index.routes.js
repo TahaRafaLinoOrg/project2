@@ -35,9 +35,9 @@ router.get("/portfolio", isLoggedIn, (req, res, next) => {
 });
 
 /*CREATE-PROJECT*/
-router.get("/create-project", (req, res, next) => {
+router.get("/create-project", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
-  res.render("create-project",{loggedInUser});
+  res.render("create-project", { loggedInUser });
 });
 router.post("/create-project", (req, res, next) => {
   //console.log("require body", req.body)
@@ -60,11 +60,11 @@ router.post("/create-project", (req, res, next) => {
 });
 
 /*USER-DETAILS*/
-router.get("/user-details", (req, res, next) => {
+router.get("/user-details", isLoggedIn, (req, res, next) => {
   const userInformation = req.session
   const loggedInUser = req.session.currentUser
   console.log(userInformation)
-  res.render("user-details", { userInformation, loggedInUser})
+  res.render("user-details", { userInformation, loggedInUser })
 })
 router.post("/user-details", (req, res, next) => {
   //console.log("require user", req.body)
@@ -82,7 +82,7 @@ router.post("/user-details", (req, res, next) => {
 
 /*project*/
 
-router.get("/project/:projectId", (req, res, next) => {
+router.get("/project/:projectId", isLoggedIn, (req, res, next) => {
   const id = req.params.projectId;
   const loggedInUser = req.session.currentUser
   Project.findById(id)
@@ -95,7 +95,7 @@ router.get("/project/:projectId", (req, res, next) => {
       //console.log("toString", results3UsernameString );
       let match = false
       if (loggedInUser._id == results3UsernameString) {
-        let match = true 
+        let match = true
         //console.log(match)
         res.render("project", { results3, loggedInUser, match })
       } else {
@@ -108,7 +108,7 @@ router.get("/project/:projectId", (req, res, next) => {
 
 /*project Edit*/
 
-router.get("/edit-project/:_id", (req, res, next) => {
+router.get("/edit-project/:_id", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //const userInformation = req.session
@@ -131,7 +131,7 @@ router.post("/edit-project/:_id", (req, res, next) => {
     .catch((err) => next(err))
 })
 /*DELETE-PROJECT */
-router.get("/delete-project/:_id", (req, res, next) => {
+router.get("/delete-project/:_id", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   const projectId = req.params._id
   //console.log("reading");
@@ -149,16 +149,16 @@ router.post("/delete-project/:_id", (req, res, next) => {
 })
 
 /*RELATIONSHIP BETWEEN USERS */
-router.get("/find-users", (req, res, next) => {
+router.get("/find-users", isLoggedIn, (req, res, next) => {
   const loggedInUser = req.session.currentUser
   console.log("this working");
-  res.render("find-users", {loggedInUser})
+  res.render("find-users", { loggedInUser })
 })
 router.post("/find-users", (req, res, next) => {
   //console.log("what about this");
   const { searchUsers } = req.body
   const regexPattern = new RegExp(searchUsers, 'i');
-  User.findOne({ username:  { $regex: regexPattern } })
+  User.findOne({ username: { $regex: regexPattern } })
     .populate("project")
     .then((findUser) => {
       console.log("the user is finduser: ", findUser)
