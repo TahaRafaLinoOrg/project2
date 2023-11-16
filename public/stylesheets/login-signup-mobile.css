@@ -20,7 +20,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: 191D88
+    background-color: #191D88;
   }
   
   .container-form-login-signup {
@@ -29,8 +29,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: 337CCF;
-    border-radius: 20px;
+    background-color: #1450A3;
+    box-shadow: -1px -1px 15px -3px #FFC436;
+    border-radius: 50px 0 50px 0;
   }
   
   .form-login-signup {

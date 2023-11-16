@@ -1,0 +1,71 @@
+@media only screen and (max-width: 400px){
+    .container-portfolio{
+        width: 100%;
+        height: auto;
+        background: linear-gradient(180deg, rgba(25,29,136,1) 0%, rgba(20,80,163,1) 35%, rgba(51,124,207,1) 100%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+    .ul-container{
+        text-decoration: none;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px 0;
+    }
+    .logo-portfolio-page{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .portfolio-buttons{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-container-portfolio{
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .user-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+    }
+    .profile-user-img-portfolio{
+        width: 100px;
+        height: 100px;
+    }
+    .container-cards{
+        width: 98%;
+        margin: 20px;
+        display:flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .cards{
+        margin-bottom: 10px;
+        display: flex;
+        position: relative;
+        text-align: center;
+        color: rgb(255, 0, 0);
+        height: 160px;
+        width: 170px;
+    }
+    .cards > .img-portfolio{
+        height: 100%;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .name-project {
+        position: absolute;
+        top: 8px;
+        left: 16px;
+      }
+}
