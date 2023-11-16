@@ -157,13 +157,14 @@ router.get("/find-users", isLoggedIn, (req, res, next) => {
 router.post("/find-users", (req, res, next) => {
   //console.log("what about this");
   const { searchUsers } = req.body
+  const loggedInUser = req.session.currentUser
   const regexPattern = new RegExp(searchUsers, 'i');
   User.findOne({ username: { $regex: regexPattern } })
     .populate("project")
     .then((findUser) => {
       console.log("the user is finduser: ", findUser)
       const arrayOfProjects2 = findUser.project
-      res.render("find-users", { findUser, arrayOfProjects2 })
+      res.render("find-users", { findUser, arrayOfProjects2, loggedInUser })
     })
     .catch((err) => next("this a error", err))
 })
