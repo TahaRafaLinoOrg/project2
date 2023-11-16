@@ -3,13 +3,15 @@
 <section class="container-edit-project">
     <h4>EDIT</h4>
 <div class="section-project">
-    <h1>{{this.name}}</h1>
-    <p>{{this.description}}</p>
-    <img src="{{this.imgUrl}}" alt="{{this.name}}">
+    <h1>{{results3.name}}</h1>
+    <p>{{results3.description}}</p>
+    <img src="{{results3.imgUrl}}" alt="{{this.name}}">
 </div>
+{{#if match}}
 <div class="button">
-<a href="/edit-project/{{this._id}}"><button class="btn-register btn" type="submit">EDIT</button></a>
+<a href="/edit-project/{{results3._id}}"><button class="btn-register btn" type="submit">EDIT</button></a>
 <a href="http:#"><button class="btn-register btn" type="submit">DONE</button></a>
-<a href="/delete-project/{{this._id}}"><button class="btn-register btn" type="submit">DELETE</button></a>
+<a href="/delete-project/{{results3._id}}"><button class="btn-register btn" type="submit">DELETE</button></a>
 </div>
+{{/if}}
 </section>

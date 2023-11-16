@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
 });
 
 /*PORTFOLIO*/
-router.get("/portfolio", isLoggedIn,  (req, res, next) => {
+router.get("/portfolio", isLoggedIn, (req, res, next) => {
   const { email, description } = req.session.currentUser
   const loggedInUser = req.session.currentUser
   //console.log({ loggedInUser });
@@ -30,7 +30,7 @@ router.get("/portfolio", isLoggedIn,  (req, res, next) => {
       res.render("portfolio", { loggedInUser, arrayOfProjects: userpop.project, userpop });
     })
     .catch((err) => next(err));
-    /* this part we trying to work */
+  /* this part we trying to work */
 
 });
 
@@ -62,7 +62,7 @@ router.post("/create-project", (req, res, next) => {
 router.get("/user-details", (req, res, next) => {
   const userInformation = req.session
   console.log(userInformation)
-  res.render("user-details", {userInformation})
+  res.render("user-details", { userInformation })
 })
 router.post("/user-details", (req, res, next) => {
   //console.log("require user", req.body)
@@ -82,10 +82,24 @@ router.post("/user-details", (req, res, next) => {
 
 router.get("/project/:projectId", (req, res, next) => {
   const id = req.params.projectId;
+  const loggedInUser = req.session.currentUser
   Project.findById(id)
     .then((results3) => {
-      //console.log(results3)
-      res.render("project", results3)
+      //console.log("este es el results3:",results3);
+      //console.log("Este es el logged in user:",loggedInUser);
+      //console.log("primero loggedInUser._id depois results3.username :",loggedInUser._id, results3.username );
+      const results3Username = results3.username;
+      const results3UsernameString = results3Username.toString();
+      //console.log("toString", results3UsernameString );
+      let match = false
+      if (loggedInUser._id == results3UsernameString) {
+        let match = true 
+        //console.log(match)
+        res.render("project", { results3, loggedInUser, match })
+      } else {
+        console.log(match)
+        res.render("project", { results3, loggedInUser })
+      }
     })
     .catch((err) => next(err));
 })
@@ -96,11 +110,11 @@ router.get("/edit-project/:_id", (req, res, next) => {
   const projectId = req.params._id
   //const userInformation = req.session
   Project.findById(projectId)
-  .then((thisProject)=>{
-    //console.log("hola aca esa el req.params",req)
-    res.render("edit-project", {projectId,thisProject})
-  })
-  
+    .then((thisProject) => {
+      //console.log("hola aca esa el req.params",req)
+      res.render("edit-project", { projectId, thisProject })
+    })
+
 })
 
 router.post("/edit-project/:_id", (req, res, next) => {
@@ -113,35 +127,37 @@ router.post("/edit-project/:_id", (req, res, next) => {
     })
     .catch((err) => next(err))
 })
- /*DELETE-PROJECT */
-router.get("/delete-project/:_id", (req, res, next) =>{
+/*DELETE-PROJECT */
+router.get("/delete-project/:_id", (req, res, next) => {
   const projectId = req.params._id
-  console.log("reading");
-  res.render("delete-project", {projectId})
+  //console.log("reading");
+  res.render("delete-project", { projectId })
 })
 router.post("/delete-project/:_id", (req, res, next) => {
   const projectId = req.params._id;
   console.log("working?");
-  return Project.deleteOne({_id: projectId})
+  return Project.deleteOne({ _id: projectId })
     .then((projectDelete) => {
-      console.log("PROJECT DELETE RESULT", projectDelete)
+      //console.log("PROJECT DELETE RESULT", projectDelete)
       res.redirect("/portfolio")
     })
     .catch((err) => next("this a error", err))
 })
 
 /*RELATIONSHIP BETWEEN USERS */
-router.get("/find-users", (req,res,next) =>{
+router.get("/find-users", (req, res, next) => {
   console.log("this working");
   res.render("find-users")
 })
 router.post("/find-users", (req, res, next) => {
   console.log("what about this");
   const { searchUsers } = req.body
-  return User.find({username: searchUsers})
+  User.findOne({ username: searchUsers })
+    .populate("project")
     .then((findUser) => {
-      console.log("the user is: ", findUser)
-      res.render("find-users", {findUser})
+      //console.log("the user is: ", findUser)
+      const arrayOfProjects2 = findUser.project
+      res.render("find-users", { findUser, arrayOfProjects2 })
     })
     .catch((err) => next("this a error", err))
 })
