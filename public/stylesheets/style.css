@@ -20,12 +20,25 @@ body {
 }
 
 .btn {
+  padding: 25px 30px;
+  background-color: #191D88;
+  color: #337CCF;
+  font-weight: bold;
   border: none;
-  border-radius: 10px;
-  box-shadow: inset 0px 0px 15px 5px rgba(0, 0, 0, 0.602);
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
   cursor: pointer;
-  padding: 10px 20px;
-  margin-bottom: 10px;
+}
+
+.btn:hover {
+  background: #337CCF;
+  color: #050801;
+  box-shadow: 0 0 5px #337CCF,
+    0 0 25px #337CCF,
+    0 0 50px #337CCF,
+  
 }
 
 .input {
@@ -104,7 +117,7 @@ img {
 
 /*PORTFOLIO PAGE*/
 
-.portfolio-buttons{
+.portfolio-buttons {
   margin-bottom: 10px;
 }
 
@@ -120,7 +133,7 @@ img {
   width: 100%;
   height: 100px;
   padding: 0 20px;
-/*   display: flex;
+  /*   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none; */
@@ -190,7 +203,7 @@ img {
 
 .profile-user-img-portfolio {
   height: 100px;
-  
+
 }
 
 .container-cards {
@@ -277,32 +290,32 @@ img {
   }
 
   /*INDEX PAGE*/
-.container-index {
-  width: 100vw;
-  background-image: url(/images/foto-de-uma-linda-mulher-pensativa-pondera-sobre-algo-olha-pensativamente-de-lado-tem-algumas-ideias-em-mente-vestida-casualmente-isolada-na-parede-azul-espaco-em-branco-para-seu-anuncio.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0 20px;
-}
+  .container-index {
+    width: 100vw;
+    background-image: url(/images/foto-de-uma-linda-mulher-pensativa-pondera-sobre-algo-olha-pensativamente-de-lado-tem-algumas-ideias-em-mente-vestida-casualmente-isolada-na-parede-azul-espaco-em-branco-para-seu-anuncio.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+  }
 
-.empity {
-  width: 50%;
-}
+  .empity {
+    width: 50%;
+  }
 
-.text {
-  width: 40%;
-  text-align: center;
-  line-height: 25px;
-  color: rgb(5, 5, 81);
-  font-family: 'Poiret One', sans-serif;
-}
+  .text {
+    width: 40%;
+    text-align: center;
+    line-height: 25px;
+    color: rgb(5, 5, 81);
+    font-family: 'Poiret One', sans-serif;
+  }
 
-.logo-index {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
+  .logo-index {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
 }

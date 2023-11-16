@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+body {
+    background: linear-gradient(90deg, rgba(25, 29, 136, 1) 0%, rgba(20, 80, 163, 1) 35%, rgba(51, 124, 207, 1) 100%);
+}
+
+.main-container-portfolio{
+margin-top: 35px;
+}
+
+.ul-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.ul-container>.user-name-portfolio {
+    font-weight: bold;
+    font-size: large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #191D88;
+}
+
+.name-project {
+    color: #191D88
+}
+
+
+.img-portfolio:hover{
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+    box-shadow: 10px 10px rgba(0, 0, 0, .25);
+    background: #337CCF;
+    color: #050801;
+    box-shadow: 0 0 5px #337CCF,
+        0 0 25px#337CCF,
+        0 0 50px #337CCF,
+}
+
+
+.user-container {
+    position: relative;
+    width: 350px;
+    height: 250px;
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+    box-shadow: 20px 20px rgba(0, 0, 0, .15);
+    transition: all .4s ease;
+    padding: 25px 30px;
+    background-color: #191D88;
+    color: #337CCF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+    overflow:scroll;
+    overflow-x:hidden
+}
+
+.user-container:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+    box-shadow: 10px 10px rgba(0, 0, 0, .25);
+    background: #337CCF;
+    color: #050801;
+    box-shadow: 0 0 5px #337CCF,
+        0 0 25px#337CCF,
+        0 0 50px #337CCF,
+}
+
+
+
+/*  .btn-create-project{
+    padding: 25px 30px;
+    background-color: #191D88;
+    color: #337CCF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+};
+
+.btn-find-user{
+    padding: 25px 30px;
+    background-color: #191D88;
+    color: #337CCF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+};
+.btn-edit-profile{
+    padding: 25px 30px;
+    background-color: #191D88;
+    color: #337CCF;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 4px;
+    overflow: hidden;
+    transition: 0.5s;
+    cursor: pointer;
+};
+
+*/
