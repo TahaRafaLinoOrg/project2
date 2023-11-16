@@ -157,7 +157,8 @@ router.get("/find-users", (req, res, next) => {
 router.post("/find-users", (req, res, next) => {
   //console.log("what about this");
   const { searchUsers } = req.body
-  User.findOne({ username: searchUsers })
+  const regexPattern = new RegExp(searchUsers, 'i');
+  User.findOne({ username:  { $regex: regexPattern } })
     .populate("project")
     .then((findUser) => {
       console.log("the user is finduser: ", findUser)
