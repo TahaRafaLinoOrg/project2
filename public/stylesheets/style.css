@@ -345,3 +345,11 @@ img {
     0 0 25px #337CCF,
     0 0 50px #337CCF,
 }
+.footer{
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+}
