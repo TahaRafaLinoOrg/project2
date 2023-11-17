@@ -1,0 +1,15 @@
+@media only screen and (min-width: 400px) {
+    .btn {
+        padding: 25px 30px;
+        background-color: #000000;
+        color: #337CCF;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+        letter-spacing: 4px;
+        overflow: hidden;
+        transition: 0.5s;
+        cursor: pointer;
+        font-family: 'Poiret One', sans-serif;
+      }
+}

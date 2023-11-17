@@ -23,6 +23,7 @@ body {
   width: 100vw;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: #191D88;
+  font-family: 'Poiret One', sans-serif;
 }
 
 .btn {
@@ -36,6 +37,7 @@ body {
   overflow: hidden;
   transition: 0.5s;
   cursor: pointer;
+  font-family: 'Poiret One', sans-serif;
 }
 
 .btn:hover {
@@ -44,13 +46,13 @@ body {
   box-shadow: 0 0 5px #337CCF,
     0 0 25px #337CCF,
     0 0 50px #337CCF,
-  
 }
 
 .input {
   padding: 5 10px;
   margin-bottom: 10px;
   border: none;
+  font-family: 'Poiret One', sans-serif;
 }
 .error{
   margin-top: 20px;
@@ -139,20 +141,23 @@ img {
 
 .container-portfolio {
   width: 100%;
+  height: calc(100% - 50px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(90deg, rgba(25, 29, 136, 1) 0%, rgba(20, 80, 163, 1) 35%, rgba(51, 124, 207, 1) 100%);
 }
-
-.ul-container {
-  width: 100%;
-  height: 100px;
-  padding: 0 20px;
-  /*   display: flex;
-  justify-content: space-between;
+.ul-container{
+  margin-bottom: 20px;
+}
+.ul-container>.user-name-portfolio {
+  font-weight: bold;
+  font-size: large;
+  display: flex;
   align-items: center;
-  list-style: none; */
+  justify-content: center;
+  color: #191D88;
 }
 
 .left {
@@ -161,24 +166,12 @@ img {
   justify-content: space-between;
 }
 
-/* .profile-img {
-  height: 100px;
-  width: 100px;
-  background-color: rgb(253, 193, 114);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: none;
-} */
-
 .welcome {
   display: flex;
   align-items: flex-end;
 }
 
 .right {
-  /* width: 70%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -201,20 +194,49 @@ img {
   width: 98%;
   display: flex;
   justify-content: space-between;
+  margin-top: 35px;
 }
-
 .user-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 20%;
   min-height: 400px;
-  background-color: rgb(173, 231, 231);
+  position: relative;
+  width: 350px;
+  height: 250px;
+  border-radius: 0% 0% 0% 0% / 0% 0% 0% 0%;
+  box-shadow: 20px 20px rgba(0, 0, 0, .15);
+  transition: all .4s ease;
+  padding: 25px 30px;
+  background-color: #191D88;
+  color: #337CCF;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  overflow: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
 }
-
-.user-container>p {
+.user-container::webkit-scrollbar {
+  -ms-overflow-style: none;
+}
+.user-container:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, .25);
+  background: #337CCF;
+  color: #050801;
+  box-shadow: 0 0 5px #337CCF,
+      0 0 25px#337CCF,
+      0 0 50px #337CCF,
+}
+.user-container > p {
   width: 90%;
+  height: 50%;
 }
 
 .profile-user-img-portfolio {
@@ -237,22 +259,33 @@ img {
   position: absolute;
   top: 8px;
   left: 16px;
+  color: #191D88;
+  background-color: #337ccfb8;
+  padding: 5px 10px;
+  border-radius: 4px;
 }
 
 .cards {
   position: relative;
   text-align: center;
   color: rgb(255, 0, 0);
-  height: 230px;
+  height: 180px;
   width: 200px;
-  border: 2px solid black;
-  border-radius: 10px;
-
+  
 }
 
-.cards .img-portfolio {
-  height: 100%;
+.img-portfolio {
   width: 100%;
+  height: 100%;
+}
+.img-portfolio:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5%;
+  box-shadow: 10px 10px rgba(0, 0, 0, .25);
+  background: #337CCF;
+  color: #050801;
+  box-shadow: 0 0 5px #337CCF,
+      0 0 25px#337CCF,
+      0 0 50px #337CCF,
 }
 
 /*CREATE-PROJECT*/
@@ -275,8 +308,10 @@ img {
   align-items: center;
   background-color: rgb(255, 255, 255);
 }
-
-.section-project {
+.btn-project{
+  padding-bottom: 10px;
+}
+/* .section-project {
   width: 50%;
   height: 400px;
   display: flex;
@@ -287,16 +322,26 @@ img {
   border-radius: 20px;
   padding: 0 20px;
   text-align: center;
-}
+} */
 .edit-project-description > p {
   max-height: 200px;
 }
-.section-project>h1,
-p,
-img {
-  margin-bottom: 20px;
+.btn-delete {
+  padding: 25px 30px;
+  background-color: #191D88;
+  color: #FFC436;
+  border: none;
+  border-radius: 5px;
+  letter-spacing: 4px;
+  overflow: hidden;
+  transition: 0.5s;
+  cursor: pointer;
+  font-family: 'Poiret One', sans-serif;
 }
-
-.button {
-  margin-top: 20px;
+.btn-delete:hover {
+  background: #FFC436;
+  color: #191D88;
+  box-shadow: 0 0 5px #337CCF,
+    0 0 25px #337CCF,
+    0 0 50px #337CCF,
 }
